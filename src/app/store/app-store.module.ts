@@ -9,6 +9,7 @@ import {
   UserEffects,
   NotificationEffects,
   RoutingEffects,
+  SessionEffects,
 } from './effects';
 import { SharedModule } from '../shared/shared.module';
 
@@ -22,6 +23,7 @@ import { SharedModule } from '../shared/shared.module';
       LocalStorageEffects,
       NotificationEffects,
       RoutingEffects,
+      SessionEffects,
     ]),
     SharedModule,
   ],

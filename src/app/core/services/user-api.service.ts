@@ -18,4 +18,8 @@ export class UserApiService {
       credentials
     );
   }
+
+  refreshToken$(userData: IUserCredentialsApi): Observable<string> {
+    return this.httpClient.post<string>(`/${this.PATH}/refreshToken`, userData);
+  }
 }

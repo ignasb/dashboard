@@ -16,5 +16,8 @@ export const loginFail = createAction(
 );
 export const logout = createAction('[User] LOGOUT');
 export const refreshToken = createAction('[User] REFRESH_TOKEN');
-export const refreshTokenSuccess = createAction('[User] REFRESH_TOKEN_SUCCESS');
+export const refreshTokenSuccess = createAction(
+  '[User] REFRESH_TOKEN_SUCCESS',
+  props<{ token: string }>()
+);
 export const refreshTokenFail = createAction('[User] REFRESH_TOKEN_FAIL');

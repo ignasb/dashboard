@@ -3,11 +3,11 @@ import { IUserCredentialsApi } from 'src/app/core/models/http/user-api';
 import { UserActions } from './../actions';
 
 export interface IUserState {
-  userData: IUserCredentialsApi | null;
+  userData: IUserCredentialsApi;
 }
 
 const initialState: IUserState = {
-  userData: null,
+  userData: {} as IUserCredentialsApi,
 };
 
 export const userReducer = createReducer<IUserState>(
@@ -19,5 +19,15 @@ export const userReducer = createReducer<IUserState>(
   on(UserActions.loginFail, (state) => ({
     ...state,
   })),
-  on(UserActions.logout, (state) => ({ ...state, userData: null }))
+  on(UserActions.logout, (state) => ({
+    ...state,
+    userData: null as any,
+  })),
+  on(UserActions.refreshTokenSuccess, (state, { token }) => ({
+    ...state,
+    userData: {
+      ...state.userData,
+      token,
+    },
+  }))
 );

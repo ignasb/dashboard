@@ -1,3 +1,21 @@
 :host {
   width: 100%;
+
+  .l-toolbar {
+    display: flex;
+    justify-content: space-between;
+
+    &__details {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 3;
+    }
+
+    &__settings {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+    }
+  }
 }

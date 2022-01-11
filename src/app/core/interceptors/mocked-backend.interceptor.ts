@@ -37,6 +37,8 @@ export class MockedBackendInterceptor implements HttpInterceptor {
       switch (true) {
         case url.endsWith('/user/login') && method === 'POST':
           return login();
+        case url.endsWith('/user/refreshToken') && method === 'POST':
+          return refreshToken();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -52,6 +54,10 @@ export class MockedBackendInterceptor implements HttpInterceptor {
       return ok({
         ...user,
       });
+    }
+
+    function refreshToken() {
+      return ok({ token: `REFRESHED_TOKEN_${new Date().getTime()}` });
     }
 
     function ok(body?: any) {

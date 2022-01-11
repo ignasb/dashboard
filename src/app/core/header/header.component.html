@@ -1,8 +1,14 @@
-<mat-toolbar color="primary">
-  <mat-icon>dashboard</mat-icon>
-  <h5 *ngIf="!(isLoggedIn$ | async)">&nbsp; User Dashboard</h5>
-  <span *ngIf="isLoggedIn$ | async"
-    >&nbsp; Hello, {{ userName$ | async }} !</span
-  >
+<mat-toolbar class="l-toolbar" color="primary">
+  <div class="l-toolbar__details">
+    <mat-icon>dashboard</mat-icon>
+    <h5 *ngIf="!(isLoggedIn$ | async)">&nbsp; User Dashboard</h5>
+    <span *ngIf="isLoggedIn$ | async"
+      >&nbsp; Hello, {{ userName$ | async }} !</span
+    >
+  </div>
+
+  <div class="l-toolbar__settings" *ngIf="isLoggedIn$ | async">
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
 </mat-toolbar>
-<mat-progress-bar [mode]="'indeterminate'"> </mat-progress-bar>
+<!-- <mat-progress-bar [mode]="'indeterminate'"> </mat-progress-bar> -->

@@ -9,12 +9,14 @@ import { CoreModule } from './core/core.module';
 import { LoginModule } from './login/login.module';
 import { EffectsModule } from '@ngrx/effects';
 import { AppStoreModule } from './store/app-store.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     CoreModule,
     LoginModule,
+    DashboardModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

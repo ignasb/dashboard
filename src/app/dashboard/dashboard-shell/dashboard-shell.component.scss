@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+
+  .l-settings {
+    padding-bottom: 24px;
+  }
+}

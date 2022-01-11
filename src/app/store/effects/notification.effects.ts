@@ -10,7 +10,7 @@ export class NotificationEffects {
   public successNotifications$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(UserActions.loginSuccess),
+        ofType(UserActions.loginSuccess, UserActions.refreshTokenSuccess),
         tap((action) => {
           this.showSuccessNotification(action);
         })
@@ -21,7 +21,7 @@ export class NotificationEffects {
   public failureNotifications$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(UserActions.loginFail),
+        ofType(UserActions.loginFail, UserActions.refreshTokenFail),
         tap((action) => {
           this.showFailureNotification(action);
         })
@@ -62,6 +62,10 @@ export class NotificationEffects {
         return 'Logged in successfully.';
       case UserActions.loginFail.type:
         return 'Failed to log in.';
+      case UserActions.refreshTokenSuccess.type:
+        return 'Refreshed token successfully.';
+      case UserActions.refreshTokenFail.type:
+        return 'Failed to refresh token.';
       default:
         return null;
     }
