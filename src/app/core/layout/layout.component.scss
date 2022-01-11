@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  height: 100%;
+
+  .l-layout {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+
+    &__body {
+      display: flex;
+      flex: 1 1 auto;
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+}

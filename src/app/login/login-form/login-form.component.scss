@@ -1,0 +1,22 @@
+:host {
+  width: 400px;
+
+  .l-login {
+    &__form {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    &__title {
+      display: flex;
+      align-items: center;
+    }
+
+    &__actions {
+      display: flex;
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

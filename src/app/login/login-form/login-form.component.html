@@ -1,0 +1,22 @@
+<mat-card class="l-login">
+  <mat-card-title class="l-login__title"
+    >Login <mat-icon>key</mat-icon></mat-card-title
+  >
+  <mat-card-content>
+    <form class="l-login__form" [formGroup]="loginForm">
+      <mat-form-field [appearance]="'outline'">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="username" />
+      </mat-form-field>
+      <mat-form-field [appearance]="'outline'">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="l-login__actions">
+    <button (click)="login(loginForm.value)" mat-raised-button color="primary">
+      LOGIN
+    </button>
+  </mat-card-actions>
+</mat-card>
