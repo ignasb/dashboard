@@ -1,5 +1,8 @@
 <mat-toolbar color="primary">
   <mat-icon>dashboard</mat-icon>
-  <h5>User Dashboard</h5>
+  <h5 *ngIf="!(isLoggedIn$ | async)">&nbsp; User Dashboard</h5>
+  <span *ngIf="isLoggedIn$ | async"
+    >&nbsp; Hello, {{ userName$ | async }} !</span
+  >
 </mat-toolbar>
 <mat-progress-bar [mode]="'indeterminate'"> </mat-progress-bar>

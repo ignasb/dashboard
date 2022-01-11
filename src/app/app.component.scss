@@ -2,3 +2,13 @@
   display: block;
   height: 100%;
 }
+
+::ng-deep .failure-style {
+  background-color: darkred;
+  color: white;
+}
+
+::ng-deep .success-style {
+  background-color: darkgreen;
+  color: white;
+}

@@ -8,11 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -22,9 +25,11 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
   exports: [
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule,
     MatInputModule,
     MatToolbarModule,
@@ -33,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
+    MatSnackBarModule,
   ],
 })
 export class SharedModule {}

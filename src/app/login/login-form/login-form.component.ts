@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ILoginCredentials } from 'src/app/core/models/data/user';
 import { UserApiService } from 'src/app/core/services/user-api.service';
@@ -8,26 +8,20 @@ import { UserApiService } from 'src/app/core/services/user-api.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
+export class LoginFormComponent {
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor(private readonly apiService: UserApiService) {}
+  @Output()
+  loggingIn: EventEmitter<ILoginCredentials> = new EventEmitter();
 
-  ngOnInit(): void {}
+  constructor() {}
 
   public login(credentials: ILoginCredentials): void {
     if (this.loginForm.valid) {
-      this.apiService.login$(credentials).subscribe({
-        next: (response) => {
-          console.log(response);
-        },
-        error: (error) => {
-          console.log('error occured' + error);
-        },
-      });
+      this.loggingIn.emit(credentials);
     }
   }
 }
