@@ -1,14 +1,13 @@
 import { createAction, props } from '@ngrx/store';
-import { ILoginCredentials } from 'src/app/core/models/data/user';
-import { IUserCredentialsApi } from 'src/app/core/models/http/user-api';
+import { User, UserApi } from '../../core/models';
 
 export const login = createAction(
   '[User] LOGIN',
-  props<{ credentials: ILoginCredentials }>()
+  props<{ credentials: User.ILoginCredentials }>()
 );
 export const loginSuccess = createAction(
   '[User] LOGIN_SUCCESS',
-  props<{ user: IUserCredentialsApi }>()
+  props<{ user: UserApi.IUserCredentialsApi }>()
 );
 export const loginFail = createAction(
   '[User] LOGIN_FAIL',

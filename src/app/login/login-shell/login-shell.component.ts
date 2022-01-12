@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ILoginCredentials } from 'src/app/core/models/data/user';
+import { User } from 'src/app/core/models';
 import { UserActions } from 'src/app/store/actions';
 import { IAppState } from 'src/app/store/reducers';
 
@@ -12,7 +12,7 @@ import { IAppState } from 'src/app/store/reducers';
 export class LoginShellComponent {
   constructor(private readonly store$: Store<IAppState>) {}
 
-  login(credentials: ILoginCredentials): void {
+  login(credentials: User.ILoginCredentials): void {
     this.store$.dispatch(UserActions.login({ credentials }));
   }
 }

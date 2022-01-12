@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { tap } from 'rxjs/operators';
-import { IUserCredentialsApi } from 'src/app/core/models/http/user-api';
+import { IUserCredentialsApi } from 'src/app/core/models/user-api';
 import { UserActions } from '../actions';
 
 @Injectable()

@@ -1,2 +1,14 @@
 <app-dashboard-settings class="l-settings"></app-dashboard-settings>
-<app-dashboard-table class="l-table"></app-dashboard-table>
+<div class="l-additional-info">
+  <mat-card>
+    <app-dashboard-overall-sales
+      [overallSales$]="overallSales$"
+    ></app-dashboard-overall-sales>
+  </mat-card>
+  <mat-card>
+    <app-dashboard-best-salesman
+      [bestSalesman$]="bestSalesman$"
+    ></app-dashboard-best-salesman>
+  </mat-card>
+</div>
+<app-dashboard-table class="l-table" [data$]="sales$"></app-dashboard-table>

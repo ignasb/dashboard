@@ -1,13 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { IUserCredentialsApi } from 'src/app/core/models/http/user-api';
+import { UserApi } from 'src/app/core/models';
 import { UserActions } from './../actions';
 
 export interface IUserState {
-  userData: IUserCredentialsApi;
+  userData: UserApi.IUserCredentialsApi;
 }
 
 const initialState: IUserState = {
-  userData: {} as IUserCredentialsApi,
+  userData: {} as UserApi.IUserCredentialsApi,
 };
 
 export const userReducer = createReducer<IUserState>(

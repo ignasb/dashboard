@@ -12,6 +12,9 @@ import {
   SessionEffects,
 } from './effects';
 import { SharedModule } from '../shared/shared.module';
+import { SalesSelectors } from './selectors/sales.selectors';
+import { DashboardEffects } from './effects/dashboard.effects';
+import { SalesEffects } from './effects/sales.effects';
 
 @NgModule({
   declarations: [],
@@ -24,10 +27,12 @@ import { SharedModule } from '../shared/shared.module';
       NotificationEffects,
       RoutingEffects,
       SessionEffects,
+      DashboardEffects,
+      SalesEffects,
     ]),
     SharedModule,
   ],
   exports: [StoreModule],
-  providers: [UserSelectors],
+  providers: [UserSelectors, SalesSelectors],
 })
 export class AppStoreModule {}

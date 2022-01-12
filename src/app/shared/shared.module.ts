@@ -12,6 +12,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -30,6 +31,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSnackBarModule,
     MatExpansionModule,
     MatSlideToggleModule,
+    MatTableModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -45,6 +47,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSnackBarModule,
     MatExpansionModule,
     MatSlideToggleModule,
+    MatTableModule,
   ],
 })
 export class SharedModule {}

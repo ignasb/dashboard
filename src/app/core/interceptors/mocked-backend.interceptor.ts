@@ -6,6 +6,7 @@ import {
   HttpResponse,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
+import { getTranslationDeclStmts } from '@angular/compiler/src/render3/view/template';
 import { Injectable } from '@angular/core';
 import {
   delay,
@@ -16,7 +17,7 @@ import {
   of,
   throwError,
 } from 'rxjs';
-import { users } from './mocked-backend-data';
+import { bestSalesman, sales, users } from './mocked-backend-data';
 
 @Injectable()
 export class MockedBackendInterceptor implements HttpInterceptor {
@@ -39,6 +40,12 @@ export class MockedBackendInterceptor implements HttpInterceptor {
           return login();
         case url.endsWith('/user/refreshToken') && method === 'POST':
           return refreshToken();
+        case url.endsWith('/sales') && method === 'GET':
+          return getSales();
+        case url.endsWith('/sales/best-salesman') && method === 'GET':
+          return getBestSalesman();
+        case url.endsWith('/sales/overall-sales') && method === 'GET':
+          return getOverallSales();
         default:
           // pass through any requests not handled above
           return next.handle(request);
@@ -58,6 +65,22 @@ export class MockedBackendInterceptor implements HttpInterceptor {
 
     function refreshToken() {
       return ok({ token: `REFRESHED_TOKEN_${new Date().getTime()}` });
+    }
+
+    function getSales() {
+      return ok(sales);
+    }
+
+    function getBestSalesman() {
+      return ok(bestSalesman);
+    }
+
+    function getOverallSales() {
+      return ok(
+        sales.reduce((total, sale) => {
+          return total + sale.amount;
+        }, 0)
+      );
     }
 
     function ok(body?: any) {

@@ -1,4 +1,4 @@
-import { ILoginCredentials } from '../data/user';
+import { ILoginCredentials } from './user';
 
 export interface IUserCredentialsApi extends ILoginCredentials {
   token: string;

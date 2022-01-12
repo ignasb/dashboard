@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { tap } from 'rxjs';
-import { UserActions } from '../actions';
+import { SalesActions, UserActions } from '../actions';
 
 @Injectable()
 export class NotificationEffects {
@@ -21,7 +21,13 @@ export class NotificationEffects {
   public failureNotifications$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(UserActions.loginFail, UserActions.refreshTokenFail),
+        ofType(
+          UserActions.loginFail,
+          UserActions.refreshTokenFail,
+          SalesActions.loadSalesFail,
+          SalesActions.loadOverallSalesFail,
+          SalesActions.loadBestSalesmanFail
+        ),
         tap((action) => {
           this.showFailureNotification(action);
         })
@@ -66,6 +72,12 @@ export class NotificationEffects {
         return 'Refreshed token successfully.';
       case UserActions.refreshTokenFail.type:
         return 'Failed to refresh token.';
+      case SalesActions.loadBestSalesmanFail.type:
+        return 'Failed loading best salesman data.';
+      case SalesActions.loadOverallSalesFail.type:
+        return 'Failed loading overall sales data.';
+      case SalesActions.loadSalesFail.type:
+        return 'Failed loading sales ';
       default:
         return null;
     }

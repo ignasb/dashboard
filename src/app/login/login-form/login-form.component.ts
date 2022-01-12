@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ILoginCredentials } from 'src/app/core/models/data/user';
+import { ILoginCredentials } from 'src/app/core/models/user';
 import { UserApiService } from 'src/app/core/services/user-api.service';
 
 @Component({
